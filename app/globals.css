@@ -2,26 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@import url('https://fonts.googleapis.com/css2?family=Mogra&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+html{
+  font-family: 'Nunito', sans-serif;
+}
+
+@layer base {
+
+  .backGround {
+    @apply bg-white dark:bg-slate-900 text-black dark:text-white;
   }
-}
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  .padding{
+    @apply px-4 lg:px-12 sm:px-7;
+  }
+
+  .nav{
+    @apply text-black dark:text-white fixed top-0 left-0 right-0 bg-white dark:bg-slate-900;
+    @apply flex justify-between items-center py-4 border-b dark:border-slate-600;
+  }
+
+  .input{
+    @apply border w-full h-full outline-none px-2 text-sm bg-white dark:bg-transparent
+  }
+
+  .summary-box{
+    @apply rounded-xl border border-gray-200 bg-white/20 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur;
+  }
+
+  .copy{
+    @apply flex items-center gap-2
+  }
+
+  .mode{
+    @apply fixed z-50 top-20 right-5 w-[150px] bg-white dark:bg-slate-800 py-[0.2rem] border-gray-400 shadow-lg rounded-lg text-black dark:text-white
+  }
+
+  .theme{
+    @apply flex items-center gap-2 p-2 cursor-pointer hover:bg-slate-100 hover:dark:bg-slate-900 text-sm
+  }
+
 }
